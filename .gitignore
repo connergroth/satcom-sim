@@ -1,0 +1,34 @@
+# Build artifacts
+build/
+*.o
+*.out
+satcom
+satcom_tests
+
+# Telemetry logs
+telemetry.log
+*.log
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile.cmake
+
+# Compiled binaries
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+
+# Debug files
+*.dSYM/
