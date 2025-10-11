@@ -6,7 +6,7 @@ A production-quality C++20 satellite communication simulator featuring concurren
 
 > "To deepen my understanding of real-time and mission-critical systems, I built a C++ satellite telemetry simulator. It runs concurrent Satellite and GroundStation threads over a simulated link with latency, jitter, and packet loss. I implemented CRC, ACK/NAK retries, and a small command set (orientation adjustments, thrust burns, safe mode, reboot). The design emphasizes OOP, determinism, and reliability—exactly the patterns used in space software."
 
-## 🏗️ Architecture
+## Architecture
 
 ```mermaid
 flowchart LR
@@ -28,7 +28,7 @@ flowchart LR
 - **Packet**: Protocol data unit with header, payload, and CRC-16/CCITT-FALSE checksum
 - **ThreadSafeQueue**: MPMC queue for inter-thread communication
 
-## 📦 Features
+## Features
 
 ### Telemetry
 The satellite emits telemetry at configurable rates (default 5 Hz):
@@ -57,7 +57,7 @@ Ground station can send four command types:
 - **Link**: Thread-safe queues with simulated delivery delays
 - **Main thread**: Configuration, supervision, and metrics reporting
 
-## 🚀 Build Instructions
+## Build Instructions
 
 ### Prerequisites
 - C++20 compliant compiler (GCC 10+, Clang 12+, MSVC 2019+)
@@ -152,7 +152,7 @@ chmod +x ../scripts/run_examples.sh
 ../scripts/run_examples.sh
 ```
 
-## 📊 Sample Output
+## Sample Output
 
 ### Console Output (Verbose Mode)
 
@@ -220,7 +220,7 @@ timestamp_ns,temperature_c,battery_pct,orbit_altitude_km,pitch_deg,yaw_deg,roll_
 ...
 ```
 
-## 🧪 Testing
+## Testing
 
 The test suite ([tests/basic_tests.cpp](tests/basic_tests.cpp)) includes:
 - **CRC-16/CCITT-FALSE** validation with known test vectors
@@ -254,7 +254,7 @@ Running test: test_thread_safe_queue_concurrency...
 ✓ All tests passed!
 ```
 
-## 🔧 How to Extend
+## How to Extend
 
 ### Add a New Telemetry Field
 
@@ -316,7 +316,7 @@ In `ThreadSafeQueue`:
     └── run_examples.sh         # Demo scenarios
 ```
 
-## 🛡️ System Design  
+## System Design  
 
 ### Object-Oriented Design
 - **Encapsulation**: Each class owns its state and exposes minimal public API
@@ -346,7 +346,7 @@ In `ThreadSafeQueue`:
 - **Statistical validation**: Loss probability within tolerance
 - **No external dependencies**: Portable, auditable, deployable
 
-## 📝 Design Choices
+## Design Choices
 
 1. **Why this project?** Demonstrates systems programming, concurrency, and reliability—core skills for aerospace software
 2. **Design choices:** Standard library only (no dependencies), deterministic behavior, clean separation of concerns
@@ -354,7 +354,7 @@ In `ThreadSafeQueue`:
 4. **Production-ready aspects:** Comprehensive testing, error handling, metrics, logging, extensive configuration
 5. **Extensibility:** Easy to add new commands, telemetry fields, or reliability policies
 
-## 🔗 References
+## References
 
 - **CRC-16/CCITT-FALSE**: Polynomial 0x1021, Init 0xFFFF ([spec](http://reveng.sourceforge.net/crc-catalogue/16.htm#crc.cat.crc-16-ccitt-false))
 - **C++20 Standard**: [cppreference.com](https://en.cppreference.com/)
